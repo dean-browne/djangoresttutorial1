@@ -1,7 +1,5 @@
 """
-I'm 99 percent sure that this model does not have anything to do with the
-django rest framework. I think it is just to do with some weird module called
-pygments.... Will read up on pygments now
+Pygments has nothing to do with django rest framework. It is a code highlighting module.
 """
 from __future__ import unicode_literals
 

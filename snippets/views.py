@@ -12,7 +12,7 @@ class JSONResponse(HttpResponse):
     A http response that returns it's content in JSON
     """
     def __init__(self, data, **kwargs):
-        content = JSONRenderer.render(data)
+        content = JSONRenderer().render(data)
         kwargs['content_type'] = 'application/json'
         # This calls the init method of the super class...
         super(JSONResponse, self).__init__(content, **kwargs)
@@ -29,7 +29,7 @@ def snippet_list(request):
         serializer = SnippetSerializer(snippets, many=True)
         return JSONResponse(serializer.data)
 
-    elif request.method == 'GET':
+    elif request.method == 'POST':
         data = JSONParser().parse(request)
         serializer = SnippetSerializer(data=data)
         if serializer.is_valid():
